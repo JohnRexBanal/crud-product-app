@@ -1,3 +1,5 @@
+<!-- product list -->
+
 <template>
     <li @click="handleEdit" class="product-item">
       <h3>{{ product.name }}</h3>
