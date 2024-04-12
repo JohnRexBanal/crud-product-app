@@ -52,8 +52,8 @@
   }
   button.add-product {
     background-color: #28a745;
-    padding: 8px 15px; /* Updated padding for consistent button size */
-    font-size: 0.9rem; /* Updated font size for consistent button text size */
+    padding: 8px 15px; 
+    font-size: 0.9rem; 
   }
   
   button.add-product:hover {
