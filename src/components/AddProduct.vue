@@ -29,6 +29,7 @@
       };
     },
     methods: {
+       //for adding prdocut to list
       addProduct() {
         const product = {
           id: Date.now(),
