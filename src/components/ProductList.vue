@@ -25,9 +25,11 @@
     },
     props: ['products'],
     methods: {
+      //for updating product
       editProduct(product) {
         this.$router.push({ path: `/edit/${product.id}` });
       },
+      //for deleteing product
       deleteProduct(product) {
         if (confirm('Are you sure you want to delete this product?')) {
           this.$emit('deleteProduct', product);
