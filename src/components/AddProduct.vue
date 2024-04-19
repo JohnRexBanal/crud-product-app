@@ -1,39 +1,10 @@
 <template>
-<<<<<<< HEAD
-    <div>
-      <h2>Add Product</h2>
-      <form @submit.prevent="addProduct">
-        <div>
-          <label for="name">Name:</label>
-          <input type="text" id="name" v-model="name" required>
-        </div>
-        <div>
-          <label for="description">Description:</label>
-          <textarea id="description" v-model="description" required></textarea>
-        </div>
-        <div>
-          <label for="price">Price:</label>
-          <input type="number" id="price" v-model.number="price" required>
-        </div>
-        <button type="submit">Add Product</button>
-      </form>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        name: '',
-        description: '',
-        price: '',
-=======
   <div>
     <h2>Add Product</h2>
     <form @submit.prevent="addProduct">
       <div>
         <label for="name">Name:</label>
-        <input type="text" id="name" v-model="name" required>
+        <input type="text" id="name" v-model="name" required />
       </div>
       <div>
         <label for="description">Description:</label>
@@ -41,12 +12,9 @@
       </div>
       <div>
         <label for="price">Price:</label>
-        <input type="number" id="price" v-model.number="price" required>
+        <input type="number" id="price" v-model.number="price" required />
       </div>
-      <button type="submit" class="add-product-btn">Add Product</button>
-      <div class="button-group">
-        <router-link to="/" class="back-btn">Back</router-link>
-      </div>
+      <button type="submit">Add Product</button>
     </form>
   </div>
 </template>
@@ -55,9 +23,9 @@
 export default {
   data() {
     return {
-      name: '',
-      description: '',
-      price: ''
+      name: "",
+      description: "",
+      price: "",
     };
   },
   methods: {
@@ -66,13 +34,12 @@ export default {
         id: Date.now(),
         name: this.name,
         description: this.description,
-        price: parseFloat(this.price)
->>>>>>> 045599554c119d777a73c8ac3022ace818da4f05
+        price: parseFloat(this.price),
       };
-      this.$emit('addProduct', product);
-      this.$router.push('/');
-    }
-  }
+      this.$emit("addProduct", product);
+      this.$router.push("/");
+    },
+  },
 };
 </script>
 
