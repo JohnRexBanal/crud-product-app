@@ -26,7 +26,7 @@
           required
         />
       </div>
-      <button type="submit">Update Product</button>
+      <button type="Modify Product">Update Product</button>
     </form>
   </div>
 </template>
