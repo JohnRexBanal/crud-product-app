@@ -25,7 +25,7 @@
       return {
         name: '',
         description: '',
-        price: 0
+        price: ''
       };
     },
     methods: {

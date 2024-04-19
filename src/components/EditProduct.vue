@@ -28,7 +28,7 @@
           id: this.product ? this.product.id : '',
           name: this.product ? this.product.name : '',
           description: this.product ? this.product.description : '',
-          price: this.product ? this.product.price : 0
+          price: this.product ? this.product.price : ''
         }
       };
     },
