@@ -1,45 +1,67 @@
 <template>
-    <div>
-      <h2>Edit Product</h2>
-      <form @submit.prevent="updateProduct">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" v-model="editedProduct.name" required>
-        </div>
-        <div class="form-group">
-          <label for="description">Description</label>
-          <textarea id="description" v-model="editedProduct.description" rows="4" required></textarea>
-        </div>
-        <div class="form-group">
-          <label for="price">Price</label>
-          <input type="number" id="price" v-model.number="editedProduct.price" min="0" step="0.01" required>
-        </div>
-        <button type="submit">Update Product</button>
-      </form>
-    </div>
-  </template>
+  <div>
+    <h2>Edit Product</h2>
+    <form @submit.prevent="updateProduct">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" v-model="name" required />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          rows="4"
+          v-model="description"
+          required
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input
+          type="number"
+          id="price"
+          min="0"
+          step="0.01"
+          v-model="price"
+          required
+        />
+      </div>
+      <button type="submit">Update Product</button>
+    </form>
+  </div>
+</template>
   
-  <script>
-  export default {
-    props: ['product'],
-    data() {
-      return {
-        editedProduct: {
-          id: this.product ? this.product.id : '',
-          name: this.product ? this.product.name : '',
-          description: this.product ? this.product.description : '',
-          price: this.product ? this.product.price : 0
-        }
+<script>
+export default {
+  props: ["product"],
+  created() {
+    this.editProduct = JSON.parse(this.product);
+    this.name = this.editProduct["name"];
+    this.description = this.editProduct["description"];
+    this.price = this.editProduct["price"];
+  },
+  data() {
+    return {
+      editProduct: [],
+      name: "",
+      description: "",
+      price: "",
+    };
+  },
+  methods: {
+    updateProduct() {
+      this.editProduct = {
+        id: this.editProduct.id,
+        name: this.name,
+        description: this.description,
+        price: this.price,
       };
+      this.$emit("editProduct", this.editProduct);
+      this.$router.push("/");
     },
-    methods: {
-      updateProduct() {
-        this.$emit('updateProduct', this.editedProduct);
-        this.$router.push('/');
-      }
-    }
-  };
-  </script>
+  },
+};
+</script>
   
   <style scoped>
   .form-group {

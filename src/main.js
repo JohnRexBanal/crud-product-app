@@ -6,9 +6,9 @@ import AddProduct from './components/AddProduct.vue';
 import EditProduct from './components/EditProduct.vue';
 
 const routes = [
-  { path: '/', component: ProductList },
-  { path: '/add', component: AddProduct },
-  { path: '/edit/:id', component: EditProduct, props: true }
+  { path: "/", component: ProductList },
+  { path: "/add", component: AddProduct },
+  { path: "/edit/:product", component: EditProduct, props: true },
 ];
 
 const router = createRouter({

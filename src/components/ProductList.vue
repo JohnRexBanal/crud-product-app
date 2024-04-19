@@ -26,7 +26,7 @@
     props: ['products'],
     methods: {
       editProduct(product) {
-        this.$router.push({ path: `/edit/${product.id}` });
+      this.$router.push({ path:`/edit/${JSON.stringify(product)}` });
       },
       deleteProduct(product) {
         if (confirm('Are you sure you want to delete this product?')) {
