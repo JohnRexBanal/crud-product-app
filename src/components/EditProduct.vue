@@ -31,37 +31,27 @@
   </div>
 </template>
   
-<script>
-export default {
-  props: ["product"],
-  created() {
-    this.editProduct = JSON.parse(this.product);
-    this.name = this.editProduct["name"];
-    this.description = this.editProduct["description"];
-    this.price = this.editProduct["price"];
-  },
-  data() {
-    return {
-      editProduct: [],
-      name: "",
-      description: "",
-      price: "",
-    };
-  },
-  methods: {
-    updateProduct() {
-      this.editProduct = {
-        id: this.editProduct.id,
-        name: this.name,
-        description: this.description,
-        price: this.price,
+  <script>
+  export default {
+    props: ['product'],
+    data() {
+      return {
+        editedProduct: {
+          id: this.product ? this.product.id : '',
+          name: this.product ? this.product.name : '',
+          description: this.product ? this.product.description : '',
+          price: this.product ? this.product.price : 0
+        }
       };
-      this.$emit("editProduct", this.editProduct);
-      this.$router.push("/");
     },
-  },
-};
-</script>
+    methods: {
+      updateProduct() {
+        this.$emit('updateProduct', this.editedProduct);
+        this.$router.push('/');
+      }
+    }
+  };
+  </script>
   
   <style scoped>
   .form-group {
